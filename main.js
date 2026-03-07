@@ -38,13 +38,15 @@ async function doJailBreak() {
     window.log("\nYou should not be here!!!", "red");
   } else if ((config_target >= 0x670) && (config_target < 0x700)) { // 6.70 to 6.72
     if (window.entrypoint672_result < 1) {
-      window.log("Error di Bad Hoist Entrypoint\nTekan tombol PS, restart PS4 dan coba lagi...", "red");
+      window.log("Error di Bad Hoist Entrypoint", "red");
+	  window.log("\n\nTekan tombol PS, restart PS4 dan coba lagi...");
       return;
     }
     else
       window.log("Bad Hoist Entrypoint succeeded");
     if (window.exploitsetup672_result < 1) {
-      window.log("Error di Exploit Setup\nTekan tombol PS, restart PS4 dan coba lagi...", "red");
+      window.log("Error di Exploit Setup", "red");
+	  window.log("\n\nTekan tombol PS, restart PS4 dan coba lagi...");
       return;
     }
     else
@@ -62,7 +64,8 @@ async function doJailBreak() {
       window.log("\nSudah terjailbreak!", "green");
       window.log("\nTekan tombol PS untuk keluar");
     } else {
-      window.log("\nError di Kernel Exploit\nTekan tombol PS, restart PS4 dan coba lagi...", "red");
+      window.log("\nError di Kernel Exploit", "red");
+	  window.log("\n\nTekan tombol PS, restart PS4 dan coba lagi...");
     }
   } else if ((config_target >= 0x700) && (config_target < 0x1000)) { // 7.00 to 9.60
     await loadScript('psfree_lapse_helpers.js');
@@ -81,7 +84,7 @@ async function doJailBreak() {
     jb_step_status = await PayloadLoader("payload.bin"); // Read payload from .bin file
     if (jb_step_status !== 1) {
       window.log("Gagal load HEN!", "red");
-	  window.log("\nTekan tombol PS, restart PS4 dan coba lagi...");
+	  window.log("\n\nTekan tombol PS, restart PS4 dan coba lagi...");
       return;
     }
     window.log("\nTekan tombol PS untuk keluar");

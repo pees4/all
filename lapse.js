@@ -3278,7 +3278,7 @@ async function doLapseExploit() {
     try {
       if (sysi("setuid", 0) == 0) {
         window.log("\nSudah terjailbreak!", "green");
-        window.log("\nTekan tombol PS untuk keluar");
+        window.log("\n\nTekan tombol PS untuk keluar");
         runBinLoader();
         return 0;
       }
@@ -3311,14 +3311,16 @@ async function doLapseExploit() {
         window.log("\nBERHASIL!", "green");
         return 1;
       } else {
-        window.log("Error di Lapse\nTekan tombol PS, restart PS4 dan coba lagi...", "red");
+        window.log("Error di Lapse", "red");
+		window.log("\n\nTekan tombol PS, restart PS4 dan coba lagi...");
       }
     } catch {
       // Still not exploited, something failed, but it made it here...
       die("kernel exploit gagal!");
     }
   } catch (error) {
-    window.log("Error di Lapse\nTekan tombol PS, restart PS4 dan coba lagi...\nError definition: " + error, "red");
+    window.log("Error di Lapse\nError definition: " + error, "red");
+	window.log("\n\nTekan tombol PS, restart PS4 dan coba lagi...");
     doCleanup();
   }
   return 0;
