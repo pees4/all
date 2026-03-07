@@ -80,7 +80,8 @@ async function doJailBreak() {
     // Inject HEN payload
     jb_step_status = await PayloadLoader("payload.bin"); // Read payload from .bin file
     if (jb_step_status !== 1) {
-      window.log("Gagal load HEN!\nTekan tombol PS, restart PS4 dan coba lagi...", "red");
+      window.log("Gagal load HEN!", "red");
+	  window.log("\nTekan tombol PS, restart PS4 dan coba lagi...");
       return;
     }
     window.log("\nTekan tombol PS untuk keluar");
