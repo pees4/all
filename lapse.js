@@ -1,31 +1,3 @@
-/* Copyright (C) 2025 anonymous
-
-This file is part of PSFree.
-
-PSFree is free software: you can redistribute it and/or modify
-it under the terms of the GNU Affero General Public License as
-published by the Free Software Foundation, either version 3 of the
-License, or (at your option) any later version.
-
-PSFree is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU Affero General Public License for more details.
-
-You should have received a copy of the GNU Affero General Public License
-along with this program.  If not, see <https://www.gnu.org/licenses/>.  */
-
-// Lapse is a kernel exploit for PS4 [5.00, 12.50) and PS5 [1.00-10.20). It
-// takes advantage of a bug in aio_multi_delete(). Take a look at the comment
-// at the race_one() function here for a brief summary.
-
-// debug comment legend:
-// * PANIC - code will make the system vulnerable to a kernel panic or it will
-//   perform a operation that might panic
-// * RESTORE - code will repair kernel panic vulnerability
-// * MEMLEAK - memory leaks that our code will induce
-
-// sys/socket.h
 const AF_UNIX = 1;
 const AF_INET = 2;
 const AF_INET6 = 28;
@@ -3305,7 +3277,7 @@ async function doLapseExploit() {
     }
     try {
       if (sysi("setuid", 0) == 0) {
-        window.log("\nAlready jailbroken, no need to re-jailbrake", "green");
+        window.log("\nSudah terjailbreak\nTekan tombol PS untuk keluar", "green");
         runBinLoader();
         return 0;
       }
@@ -3335,17 +3307,17 @@ async function doLapseExploit() {
     // Check if it all worked
     try {
       if (sysi('setuid', 0) == 0) {
-        window.log("\nKernel exploit succeeded and AIO fixes applied", "green");
+        window.log("\nBERHASIL", "green");
         return 1;
       } else {
-        window.log("An error occured during Lapse\nPlease restart console and try again...", "red");
+        window.log("Error di Lapse\nTekan tombol PS, restart PS4 dan coba lagi...", "red");
       }
     } catch {
       // Still not exploited, something failed, but it made it here...
-      die("kernel exploit failed!");
+      die("kernel exploit gagal!");
     }
   } catch (error) {
-    window.log("An error occured during Lapse\nPlease restart console and try again...\nError definition: " + error, "red");
+    window.log("Error di Lapse\nTekan tombol PS, restart PS4 dan coba lagi...\nError definition: " + error, "red");
     doCleanup();
   }
   return 0;

@@ -38,13 +38,13 @@ async function doJailBreak() {
     window.log("\nYou should not be here!!!", "red");
   } else if ((config_target >= 0x670) && (config_target < 0x700)) { // 6.70 to 6.72
     if (window.entrypoint672_result < 1) {
-      window.log("An error occured during Bad Hoist Entrypoint\nPlease refresh page and try again...", "red");
+      window.log("Error di Bad Hoist Entrypoint\nTekan tombol PS, restart PS4 dan coba lagi...", "red");
       return;
     }
     else
       window.log("Bad Hoist Entrypoint succeeded");
     if (window.exploitsetup672_result < 1) {
-      window.log("An error occured during Exploit Setup\nPlease refresh page and try again...", "red");
+      window.log("Error di Exploit Setup\nTekan tombol PS, restart PS4 dan coba lagi...", "red");
       return;
     }
     else
@@ -54,14 +54,14 @@ async function doJailBreak() {
     await loadScript('672kexploit.js');
     var result = KernelExploit672();
     if (result === 0 || result === 91) {
-      window.log("\nKernel exploit succeeded", "green");
+      window.log("\nKernel exploit berhasil", "green");
       getPayload672("payload.bin");
       window.log("Homebrew Enabler loaded", "green");
       window.log("\nBad Hoist by Fire30, 6.7x Kernel Exploit by Sleirsgoevy");
     } else if (result === 179) {
-      window.log("\nAlready jailbroken, no need to re-jailbrake", "green");
+      window.log("\nSudah terjailbreak\nTekan tombol PS untuk keluar", "green");
     } else {
-      window.log("\nAn error occured during Kernel Exploit\nPlease restart console and try again...", "red");
+      window.log("\nError di Kernel Exploit\nTekan tombol PS, restart PS4 dan coba lagi...", "red");
     }
   } else if ((config_target >= 0x700) && (config_target < 0x1000)) { // 7.00 to 9.60
     await loadScript('psfree_lapse_helpers.js');
@@ -79,11 +79,11 @@ async function doJailBreak() {
     // Inject HEN payload
     jb_step_status = await PayloadLoader("payload.bin"); // Read payload from .bin file
     if (jb_step_status !== 1) {
-      window.log("Failed to load HEN!\nPlease restart console and try again...", "red");
+      window.log("Gagal load HEN!\nTekan tombol PS, restart PS4 dan coba lagi...", "red");
       return;
     }
-    window.log("Homebrew Enabler loaded", "green");
-    window.log("\nPSFree & Lapse exploit with AIO fixes by ABC");
+    window.log("Tekan tombol PS untuk keluar", "green");
+    // window.log("\nPSFree & Lapse exploit with AIO fixes by ABC");
   }
   else {
     window.log("Kernel Exploit not implemented!", "red");
