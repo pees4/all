@@ -132,13 +132,15 @@
 			box-sizing: border-box;
 		}
     </style>
-<!--
 	<script>
-      if (window.applicationCache.status === 0) { // 0: UNCACHED
-        window.location.replace("cache.html");
-      }
-    </script>
--->
+		if (window.applicationCache.status=='0'){window.location.replace("cache.html");}
+		function load_mainmenu(){
+		var link = document.createElement('a');
+		document.body.appendChild(link);
+		link.href = '../index.html';
+		link.click();
+		}
+	</script>
   </head>
   <body>
     <div class="bg-decoration">

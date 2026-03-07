@@ -3278,7 +3278,7 @@ async function doLapseExploit() {
     try {
       if (sysi("setuid", 0) == 0) {
         window.log("\nSudah terjailbreak!", "green");
-        window.log("\n\nTekan tombol PS untuk keluar");
+        window.log("\nTekan tombol PS untuk keluar");
         runBinLoader();
         return 0;
       }
@@ -3312,7 +3312,7 @@ async function doLapseExploit() {
         return 1;
       } else {
         window.log("Error di Lapse", "red");
-		window.log("\n\nTekan tombol PS, restart PS4 dan coba lagi...");
+		window.log("\nTekan tombol PS, restart PS4 dan coba lagi...");
       }
     } catch {
       // Still not exploited, something failed, but it made it here...
@@ -3320,7 +3320,7 @@ async function doLapseExploit() {
     }
   } catch (error) {
     window.log("Error di Lapse\nError definition: " + error, "red");
-	window.log("\n\nTekan tombol PS, restart PS4 dan coba lagi...");
+	window.log("\nTekan tombol PS, restart PS4 dan coba lagi...");
     doCleanup();
   }
   return 0;
