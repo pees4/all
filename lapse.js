@@ -2635,7 +2635,7 @@ function runBinLoader() {
     payload_loader, // The START ROUTINE (entry point). This is the address of our shellcode.
     payload_buffer // The ARGUMENT to pass to the shellcode.
   );
-  window.log("BinLoader is ready. Send a payload to port 9020 now", "green");
+  window.log("\nBinLoader is ready, port 9020");
 }
 //================================================================================================
 // Init LapseGlobal Variables ====================================================================
@@ -3277,7 +3277,8 @@ async function doLapseExploit() {
     }
     try {
       if (sysi("setuid", 0) == 0) {
-        window.log("\nSudah terjailbreak\nTekan tombol PS untuk keluar", "green");
+        window.log("\nSudah terjailbreak!", "green");
+        window.log("\nTekan tombol PS untuk keluar");
         runBinLoader();
         return 0;
       }
@@ -3307,7 +3308,7 @@ async function doLapseExploit() {
     // Check if it all worked
     try {
       if (sysi('setuid', 0) == 0) {
-        window.log("\nBERHASIL", "green");
+        window.log("\nBERHASIL!", "green");
         return 1;
       } else {
         window.log("Error di Lapse\nTekan tombol PS, restart PS4 dan coba lagi...", "red");

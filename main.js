@@ -59,7 +59,8 @@ async function doJailBreak() {
       window.log("Homebrew Enabler loaded", "green");
       window.log("\nBad Hoist by Fire30, 6.7x Kernel Exploit by Sleirsgoevy");
     } else if (result === 179) {
-      window.log("\nSudah terjailbreak\nTekan tombol PS untuk keluar", "green");
+      window.log("\nSudah terjailbreak!", "green");
+      window.log("\nTekan tombol PS untuk keluar");
     } else {
       window.log("\nError di Kernel Exploit\nTekan tombol PS, restart PS4 dan coba lagi...", "red");
     }
@@ -82,7 +83,7 @@ async function doJailBreak() {
       window.log("Gagal load HEN!\nTekan tombol PS, restart PS4 dan coba lagi...", "red");
       return;
     }
-    window.log("Tekan tombol PS untuk keluar", "green");
+    window.log("Tekan tombol PS untuk keluar");
     // window.log("\nPSFree & Lapse exploit with AIO fixes by ABC");
   }
   else {
