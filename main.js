@@ -83,7 +83,7 @@ async function doJailBreak() {
       window.log("Gagal load HEN!\nTekan tombol PS, restart PS4 dan coba lagi...", "red");
       return;
     }
-    window.log("Tekan tombol PS untuk keluar");
+    window.log("\nTekan tombol PS untuk keluar");
     // window.log("\nPSFree & Lapse exploit with AIO fixes by ABC");
   }
   else {
