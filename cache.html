@@ -1,26 +1,107 @@
 <html manifest="ps4jb.cache">
-<head>
-<title>PS4 5.05, 6.70 - 9.60 Exploit Chain</title>
-<style>
-        body {
-            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 25%, #2d2d5f 50%, #1a1a3e 75%, #0f0f23 100%);
-            background-attachment: fixed;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            color: #ffffff;
-            text-align: center;
-        }
-</style>
-<script>
-history.replaceState(null,null,'index.html');var histlength=history.length;history.go(-histlength);
-function DLProgress(e){Percent=(Math.round(e.loaded / e.total * 100));msgs.innerHTML="Installing Offline Cache... " + Percent + "%"};
-function DisplayCacheProgress(){
-setTimeout(function(){msgs.innerHTML="Cache Installed Successfully";},2000);
-setTimeout(function(){location.reload();},3000);
-}
-window.applicationCache.addEventListener("progress",DLProgress,false);window.applicationCache.oncached=function(e){DisplayCacheProgress();};window.applicationCache.onupdateready=function(e){DisplayCacheProgress();};
-</script>
-</head>
-<body style=overflow:hidden>
-<div id=msgs class=info style='-webkit-font-feature-settings:"tnum";font-feature-settings:"tnum";'></div>
-</body>
+  <head>
+    <meta charset="utf-8">
+    <title>PS4 Jailbreak</title>
+    <style>
+      body {
+        background-color: #252526;
+        color: #cccccc;
+        font-family: "Segoe UI", Tahoma, sans-serif;
+        text-align: center;
+      }
+      h2 {
+        margin-bottom: 20px;
+      }
+      #console {
+        font-family: monospace;
+        background-color: #1e1e1e;
+        color: #cccccc;
+        border: 1px solid #3c3c3c;
+        padding: 12px;
+        border-radius: 6px;
+        margin-top: 20px;
+        text-align: left;
+      }
+      #jailbreakBtn {
+        margin-top: 20px;
+        padding: 12px 24px;
+        font-size: 18px;
+        font-weight: bold;
+        border: none;
+        border-radius: 6px;
+        background: #555555;
+        color: #aaaaaa;
+        cursor: not-allowed;
+        opacity: 0.7;
+        box-shadow: none;
+      }
+      footer {
+        margin-top: 30px;
+        font-size: 14px;
+        color: #888;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>PS4 Exploit Chain</h2>
+    <div>
+      <button id="jailbreakBtn">Start Jailbreak</button>
+    </div>
+    <div style="margin-top: 15px;">
+      <label style="font-size: 16px;">
+        <input type="checkbox" id="autoRunCheck" disabled>
+        Autorun disabled
+      </label>
+    </div>
+    <pre id="console"></pre>
+<!--
+	<footer>
+      UI Designed by <strong>Feyzee</strong>
+    </footer>
+-->
+  </body>
+  <script>
+    // Clear history and prevent back navigation
+    history.replaceState(null, null, 'index.html');
+    var histlength = history.length;
+    history.go(-histlength);
+    // Logging utility
+    var outputConsole = document.getElementById("console");
+    window.log = function (msg) {
+      outputConsole.textContent += msg + "\n";
+    };
+    // Download progress (% display)
+    function DLProgress(e) {
+      if (!e || !e.total) return;
+      var percent = (Math.round((e.loaded / e.total) * 100));
+      window.log("[CACHE] Downloading... " + percent + "% complete.");
+    }
+    // On cache complete
+    function DisplayCacheProgress() {
+      window.log(" ");
+      window.log("[SUCCESS] Cache installed successfully.");
+      window.log("Page will reload in 3 seconds...");
+      // Delay to show success message before navigation
+      setTimeout(function() { window.log("Reloading..."); }, 2000);
+      // Navigate back to index.html to load the exploit from cache
+      setTimeout(function() { location.reload(); }, 3000);
+    }
+    // On error
+    function DLError(e) {
+      window.log(" ");
+      window.log("[CACHE ERROR] An error occured during Cache...");
+      window.log("[CACHE ERROR] Check if payload.bin file included in the directory!!!");
+    }
+    // Event listeners
+    window.applicationCache.addEventListener("progress", DLProgress, false);
+    window.applicationCache.addEventListener("error", DLError, false);
+    window.applicationCache.oncached = function(e) { DisplayCacheProgress(); };
+    window.applicationCache.onupdateready = function(e) { DisplayCacheProgress(); };
+    // Initialization message on DOM load
+    document.addEventListener('DOMContentLoaded', function () {
+      outputConsole.textContent = ""; // Clear console log
+      window.log("AppCache download initiating...");
+      window.log("Please wait, this may take a few seconds.");
+    });
+  </script>
 </html>
