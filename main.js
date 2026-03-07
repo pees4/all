@@ -54,7 +54,7 @@ async function doJailBreak() {
     await loadScript('672kexploit.js');
     var result = KernelExploit672();
     if (result === 0 || result === 91) {
-      window.log("\ndocument.getElementById("jailbreakBtn").style.opacity = 0;!", "green");
+      window.log("\nBERHASIL!", "green");
       getPayload672("payload.bin");
       // window.log("Homebrew Enabler loaded", "green");
       window.log("\nTekan tombol PS untuk keluar");
