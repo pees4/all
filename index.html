@@ -18,6 +18,7 @@
 		  #console {
 			font-family: monospace;
 			color: #ffffff;
+			margin-left: 30px;
 			padding: 12px;
 			font-size: 18px;
 			border-radius: 6px;
@@ -35,15 +36,15 @@
 		@keyframes float {
 			0% {
 				transform: translateY(0px) rotate(0deg);
-				opacity: 0.20;
+				opacity: 0.10;
 			}
 			50% {
 				transform: translateY(-50px) rotate(180deg);
-				opacity: 0.45;  /* lebih terang di puncak, seperti tombol ditekan */
+				opacity: 0.2;  /* lebih terang di puncak, seperti tombol ditekan */
 			}
 			100% {
 				transform: translateY(0px) rotate(360deg);
-				opacity: 0.20;
+				opacity: 0.10;
 			}
 		}
         .container {
@@ -62,7 +63,7 @@
         .main-title {
             font-size: 3rem;
             font-weight: 700;
-            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 30%, #ec4899 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -89,7 +90,7 @@
         }
         .floating-shape {
             position: absolute;
-            opacity: 0.08;
+            opacity: 0.04;
             animation: float 25s infinite linear;
         }
 		.segitiga {
@@ -100,8 +101,8 @@
 			border-bottom: 90px solid #00ffaa;
 			position: absolute;
 			top: 35%;
-			left: 72%;
-			opacity: 0.20;
+			left: 75%;
+			opacity: 0.10;
 			animation: float 28s infinite ease-in-out;
 			animation-delay: -15s;
 			box-sizing: border-box;
@@ -114,6 +115,7 @@
 			background: transparent;
 			top: 65%;
 			left: 85%;
+			opacity: 0.06;
 			animation-delay: -8s;
 		}
 		.kotak {
@@ -124,7 +126,7 @@
 			border-radius: 0;
 			top: 65%;
 			right: 30%;
-			opacity: 0.20;
+			opacity: 0.10;
 			animation: float 32s infinite ease-in-out;
 			animation-delay: -8s;
 			box-sizing: border-box;
@@ -230,7 +232,7 @@
       // Convert "9.00" to 0x900
       config_target = parseInt(fwVersion.replace('.', ''), 16);
       // window.log("Detected FW: PS" + device + " v" + fwVersion + ", PS4JB Version: v1.02b\n");
-      window.log("FW: " + fwVersion + "\n");
+      window.log("FW: " + fwVersion + "");
       // Supported FW lists
       var supportedFW = {
         "4": ["5.05", "6.70", "6.71", "6.72",
@@ -262,7 +264,8 @@
       outputConsole.textContent = ""; // Clear console log
       try {
         if (!window.checkPlatformIsSupported()) {
-          window.log("PSFree Lapse untuk PS4 5.05, 6.70 - 9.60, untuk FW 10.00 - 13.00 pakai Vue", "red");
+          window.log("PSFree Lapse hanya untuk PS4 5.05, 6.70 - 9.60, untuk FW 10.00 - 13.00 pakai Vue", "red");
+          window.log("Tekan tombol PS untuk keluar");
         } else {
           if (config_target === 0x505) { // 5.05
             window.log("Starting 5.05 Exploit...");
