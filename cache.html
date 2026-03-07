@@ -3,60 +3,161 @@
     <meta charset="utf-8">
     <title>PS4 Jailbreak</title>
     <style>
-      body {
-        background-color: #252526;
-        color: #cccccc;
-        font-family: "Segoe UI", Tahoma, sans-serif;
-        text-align: center;
-      }
-      h2 {
-        margin-bottom: 20px;
-      }
-      #console {
-        font-family: monospace;
-        background-color: #1e1e1e;
-        color: #cccccc;
-        border: 1px solid #3c3c3c;
-        padding: 12px;
-        border-radius: 6px;
-        margin-top: 20px;
-        text-align: left;
-      }
-      #jailbreakBtn {
-        margin-top: 20px;
-        padding: 12px 24px;
-        font-size: 18px;
-        font-weight: bold;
-        border: none;
-        border-radius: 6px;
-        background: #555555;
-        color: #aaaaaa;
-        cursor: not-allowed;
-        opacity: 0.7;
-        box-shadow: none;
-      }
-      footer {
-        margin-top: 30px;
-        font-size: 14px;
-        color: #888;
-      }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 25%, #2d2d5f 50%, #1a1a3e 75%, #0f0f23 100%);
+            background-attachment: fixed;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: #ffffff;
+            text-align: center;
+        }
+		  #console {
+			font-family: monospace;
+			color: #ffffff;
+			margin-left: 30px;
+			padding: 12px;
+			font-size: 18px;
+			border-radius: 6px;
+			margin-top: 20px;
+			text-align: left;
+		  }
+        .bg-decoration {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+            pointer-events: none;
+        }
+		@keyframes float {
+			0% {
+				transform: translateY(0px) rotate(0deg);
+				opacity: 0.10;
+			}
+			50% {
+				transform: translateY(-50px) rotate(180deg);
+				opacity: 0.2;  /* lebih terang di puncak, seperti tombol ditekan */
+			}
+			100% {
+				transform: translateY(0px) rotate(360deg);
+				opacity: 0.10;
+			}
+		}
+        .container {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+        }
+        .header-section {
+            text-align: center;
+            margin-bottom: 0.3rem;
+        }
+        .main-title {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 30%, #ec4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+        .subtitle {
+            font-size: 1.2rem;
+            color: #10b981;
+            font-weight: 500;
+        }
+        .version-info {
+            font-size: 1rem;
+            color: #10b981;
+            font-weight: 600;
+        }
+        .bg-decoration {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+            pointer-events: none;
+        }
+        .floating-shape {
+            position: absolute;
+            opacity: 0.04;
+            animation: float 25s infinite linear;
+        }
+		.segitiga {
+			width: 0;
+			height: 0;
+			border-left: 50px solid transparent;
+			border-right: 50px solid transparent;
+			border-bottom: 90px solid #00ffaa;
+			position: absolute;
+			top: 35%;
+			left: 75%;
+			opacity: 0.10;
+			animation: float 28s infinite ease-in-out;
+			animation-delay: -15s;
+			box-sizing: border-box;
+		}
+		.bulat {
+			width: 100px;
+			height: 100px;
+			border: 8px solid #ff1744;
+			border-radius: 50%;
+			background: transparent;
+			top: 65%;
+			left: 85%;
+			opacity: 0.06;
+			animation-delay: -8s;
+		}
+		.kotak {
+			width: 90px;
+			height: 90px;
+			background: transparent;
+			border: 8px solid #ff69b4;
+			border-radius: 0;
+			top: 65%;
+			right: 30%;
+			opacity: 0.10;
+			animation: float 32s infinite ease-in-out;
+			animation-delay: -8s;
+			box-sizing: border-box;
+		}
     </style>
   </head>
-  <body>
-    <h2>PS4 Exploit Chain</h2>
-    <div>
-      <button id="jailbreakBtn">Start Jailbreak</button>
+    <div class="bg-decoration">
+        <div class="floating-shape bulat"></div>
+        <div class="floating-shape kotak"></div>
+        <div class="floating-shape segitiga"></div>
     </div>
-    <div style="margin-top: 15px;">
+  <body>
+        <div class="container">
+        <div class="header-section">
+            <h1 class="main-title">PS4 5.05, 6.70 - 9.60 Exploit Chain</h1>
+            <p class="subtitle">PSFree Lapse Auto GoldHEN</p>
+            <!-- <p class="version-info">GoldHEN v2.4b18.9</p> -->
+        </div>
+    </div>
+   <div style="margin-top: 15px;">
       <label style="font-size: 16px;">
         <input type="checkbox" id="autoRunCheck" disabled>
         Autorun disabled
       </label>
     </div>
     <pre id="console"></pre>
-    <footer>
+<!--
+	<footer>
       UI Designed by <strong>Feyzee</strong>
     </footer>
+-->
   </body>
   <script>
     // Clear history and prevent back navigation

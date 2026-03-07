@@ -54,10 +54,10 @@ async function doJailBreak() {
     await loadScript('672kexploit.js');
     var result = KernelExploit672();
     if (result === 0 || result === 91) {
-      window.log("\nKernel exploit berhasil", "green");
+      window.log("\ndocument.getElementById("jailbreakBtn").style.opacity = 0;!", "green");
       getPayload672("payload.bin");
-      window.log("Homebrew Enabler loaded", "green");
-      window.log("\nBad Hoist by Fire30, 6.7x Kernel Exploit by Sleirsgoevy");
+      // window.log("Homebrew Enabler loaded", "green");
+      window.log("\nTekan tombol PS untuk keluar");
     } else if (result === 179) {
       window.log("\nSudah terjailbreak!", "green");
       window.log("\nTekan tombol PS untuk keluar");
