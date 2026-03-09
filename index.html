@@ -89,9 +89,9 @@
             pointer-events: none;
         }
         .floating-shape {
-            will-change: transform, opacity;
-            transform: translateZ(0);
-			backface-visibility: hidden;
+            position: absolute;
+            opacity: 0.04;
+            animation: float 25s infinite linear;
         }
 		.segitiga {
 			width: 0;
