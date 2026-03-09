@@ -3296,7 +3296,7 @@ async function doLapseExploit() {
     await sleep(50); // Wait 50ms
     const [reqs1_addr, kbuf_addr, kernel_addr, target_id, evf] = leak_kernel_addrs(sd_pair_main);
     window.log('Lapse STAGE 3/5: Double free SceKernelAioRWRequest');
-    await sleep(50); // Wait 50ms
+    await sleep(1000); // Wait 50ms
     [pktopts_sds, dirty_sd] = double_free_reqs1(reqs1_addr, kbuf_addr, target_id, evf, sd_pair_main[0], sds);
     window.log('Lapse STAGE 4/5: Get arbitrary kernel read/write');
     await sleep(50); // Wait 50ms
