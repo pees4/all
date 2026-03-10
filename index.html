@@ -9,7 +9,7 @@
             box-sizing: border-box;
         }
         body {
-            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 25%, #2d2d5f 50%, #1a1a3e 75%, #0f0f23 100%);
+            background: linear-gradient(145deg, #0b142b 0%, #0f1e4a 35%, #1a2b66 55%, #0f1e4a 80%, #0b142b 100%);
             background-attachment: fixed;
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             color: #ffffff;
@@ -60,16 +60,21 @@
             text-align: center;
             margin-bottom: 0.3rem;
         }
-        .main-title {
-            font-size: 3rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 30%, #ec4899 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.02em;
-        }
+.main-title {
+    background: linear-gradient(45deg, #ff00aa, #00ffff, #ff00ff, #00ff9d);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientFlow 8s ease infinite;
+    text-shadow: 0 0 30px rgba(255, 0, 170, 0.7);
+}
+
+/* Tambahkan di <style> */
+@keyframes gradientFlow {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
         .subtitle {
             font-size: 1.2rem;
             color: #10b981;
@@ -98,11 +103,6 @@
 
   </head>
   <body>
-    <div class="bg-decoration">
-        <div class="floating-shape bulat"></div>
-        <div class="floating-shape kotak"></div>
-        <div class="floating-shape segitiga"></div>
-    </div>
     <div class="container">
         <div class="header-section">
             <h1 class="main-title">PS4 5.05, 6.70 - 9.60 Exploit Chain</h1>
